@@ -13,11 +13,12 @@ const enemiesArray = []
 // }
 
 const enemyImage = new Image()
-enemyImage.src = './assets/enemy1.png'
 let gameFrame = 0
 
 class Enemy {
     constructor() {
+        this.image = new Image()
+        this.image.src = './assets/enemy1.png'
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
         this.speed = Math.random() * 4 - 2
@@ -37,8 +38,8 @@ class Enemy {
         }
     }
     draw(){
-        ctx.strokeRect(this.x, this.y, this.width, this.height)
-        ctx.drawImage(enemyImage, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height)
+        
+        ctx.drawImage(this.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height)
     }
 }
 // const enemy1 = new Enemy()
