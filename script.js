@@ -14,6 +14,7 @@ const enemiesArray = []
 
 const enemyImage = new Image()
 enemyImage.src = './assets/enemy1.png'
+let gameFrame = 0
 
 class Enemy {
     constructor() {
@@ -30,7 +31,9 @@ class Enemy {
         this.x+= this.speed
         this.y+= this.speed
         // animate sprites
+        if(gameFrame % 2 === 0){
         this.frame > 4 ? this.frame = 0 : this.frame++
+        }
     }
     draw(){
         ctx.strokeRect(this.x, this.y, this.width, this.height)
@@ -51,6 +54,7 @@ function animate() {
         enemy.update()
         enemy.draw()
     })
+    gameFrame++
     requestAnimationFrame(animate)
 }
 animate()
