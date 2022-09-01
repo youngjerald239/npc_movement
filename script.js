@@ -30,6 +30,7 @@ class Enemy {
         this.x+= this.speed
         this.y+= this.speed
         // animate sprites
+        this.frame > 4 ? this.frame = 0 : this.frame++
     }
     draw(){
         ctx.strokeRect(this.x, this.y, this.width, this.height)
